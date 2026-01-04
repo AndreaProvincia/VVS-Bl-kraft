@@ -1,0 +1,434 @@
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-box {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 0; /* flytta padding till textdel så bilden kan fylla toppen */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    transition: box-shadow 0.3s;
+    position: relative; /* for absolute positioning of buttons */
+    min-height: 440px; /* ensure same height */
+}
+.service-box:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.service-box img {
+    width: 100%;
+    height: 280px; /* increased height for larger images */
+    object-fit: cover; /* ser till att bilden täcker hela området */
+    border-radius: 12px 12px 0 0; /* rundar övre kant tillsammans med boxen */
+    display: block;
+    margin: 0;
+}
+.service-box h3 {
+    margin: 0.5rem 0 0 0;
+    font-size: 1.3rem;
+    color: #1a237e;
+    padding: 1rem;
+}
+.service-box p {
+    font-size: 1rem;
+    color: #333;
+    padding: 0 1rem 1.25rem 1rem;
+    margin: 0;
+}
+.service-buttons {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    gap: 0.5rem;
+}
+.service-buttons a {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.btn-read-more {
+    background: #1a237e;
+    color: #fff;
+}
+.btn-book {
+    background: #e53935;
+    color: #fff;
+}
+.service-box h3 {
+    margin: 0.5rem 0 1rem 0;
+    font-size: 1.3rem;
+    color: #1a237e;
+    padding: 1rem;
+}
+.service-box p {
+    font-size: 1rem;
+    color: #333;
+}
+
+@media (min-width: 700px) {
+    .services-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1100px) {
+    .services-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+.overlay-text {
+  
+    color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 90vw;
+    transition: padding 0.4s, font-size 0.4s;
+}
+
+.overlay-text h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.overlay-text p {
+    font-size: 1.5rem;
+}
+.content {
+    padding: 2rem;
+    min-height: 100vh;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 2.5rem;
+    color: #1a237e;
+}
+
+.h2-bg {
+    background-color: #eef3fb;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+}
+
+:root {
+    --topbar-height: 64px;
+}
+
+/* Make room for fixed topbar */
+body.topbar-fixed-padding {
+    padding-top: var(--topbar-height);
+    transition: padding-top 0.3s ease;
+}
+
+/* Topbar styling */
+.topbar {
+    position: fixed;
+    top: 5px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0 1rem;
+    z-index: 1000;
+    transition: height 0.28s ease, padding 0.28s ease, opacity 0.25s ease, transform 0.3s ease;
+}
+.topbar-left {
+    display: flex;
+    flex-direction: row; /* place name beside logo */
+    align-items: center;
+    gap: 0.6rem;
+    justify-content: flex-start;
+}
+.logo {
+    height: calc(var(--topbar-height) - 12px);
+    width: auto;
+    border-radius: 8px;
+    display: block;
+    transition: height 0.25s ease, opacity 0.2s ease;
+}
+.company-name {
+    font-weight: 700;
+    color: #1a237e;
+    font-size: 0.95rem;
+    line-height: 1;
+    text-align: center;
+    display: block;
+}
+.topbar-center {
+    flex: 1 1 320px;
+    display: flex;
+    justify-content: center;
+}
+.search-form {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-width: 0;
+}
+/* toggle button (visible by default) */
+.search-form .search-toggle {
+    padding: 0.35rem 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+}
+/* input positioned absolutely so it can expand to the left of the toggle */
+.search-form input[type="search"] {
+    position: absolute;
+    right: 44px; /* leave space for the toggle */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    transition: width 0.22s ease, padding 0.22s ease;
+    background: #fff;
+}
+.search-form.open input[type="search"] {
+    width: 200px;
+    padding: 0.45rem 0.6rem;
+}
+/* hide the submit button (Enter will submit) */
+.search-form .search-submit {
+    display: none;
+}
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.topbar-right a {
+    color: #1a237e;
+    text-decoration: none;
+    font-weight: 600;
+}
+.cart-count {
+    display: inline-block;
+    background: #e53935;
+    color: #fff;
+    padding: 0 6px;
+    margin-left: 6px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+}
+
+@media (max-width: 700px) {
+    .search-form { max-width: 220px; }
+    .company-name { font-size: 0.85rem; }
+}
+
+/* Shrink topbar when scrolling: animate to zero height and hide */
+.topbar.shrink {
+    transform: translateY(-100%); /* slide up smoothly */
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (max-width: 700px) {
+    :root { --topbar-height: 52px; }
+    .search-form.open input[type="search"] { width: 140px; }
+}
+
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 300px;
+    max-height: 450px;
+    background-image: url('img/artsy-blue-clouds.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: height 0.4s;
+}
+
+.hero-section.shrink {
+    height: 30vh;
+}
+
+.overlay-text {
+  
+    color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 90vw;
+    transition: padding 0.4s, font-size 0.4s;
+}
+
+.hero-section.shrink .overlay-text {
+    padding: 1rem;
+    font-size: 0.9em;
+}
+
+/* New hero split layout: left text + buttons, right placeholder */
+.hero-inner {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+    padding: 2rem;
+    align-items: center;
+}
+.hero-left {
+    flex: 0 0 55%;
+}
+.hero-right {
+    flex: 0 0 45%;
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.overlay-text {
+   
+    color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: left; /* left aligned now */
+    max-width: 100%;
+}
+.overlay-text h1 { font-size: 2.6rem; margin-bottom: 0.6rem; }
+.overlay-text h2 { font-size: 1.25rem; margin-top: 0; color: #dfe3ff; }
+.overlay-text p { font-size: 1rem; color: #e8eaf6; }
+.hero-buttons { margin-top: 1.25rem; display: flex; gap: 0.75rem; }
+.btn { display: inline-block; padding: 0.6rem 1rem; border-radius: 8px; text-decoration: none; font-weight: 700; }
+.btn-primary { background: #1a237e; color: #fff; }
+.btn-secondary { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.12); }
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+    .hero-inner { flex-direction: column; padding: 1rem; }
+    .hero-left, .hero-right { flex: 1 1 100%; width: 100%; }
+    .overlay-text { text-align: center; }
+    .hero-right { display: none; }
+}
+
+/* Specific colors for hero-left overlay text */
+.hero-left .overlay-text h1 { color: #23416c; }
+.hero-left .overlay-text h2 { color: #4f5899; }
+.hero-left .overlay-text p { color: #501362; }
+
+main {
+    background: #fff;
+}
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('img/artsy-blue-clouds.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: height 0.4s;
+}
+.hero-section.shrink {
+    height: 30vh;
+}
+.overlay-text {
+    color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 90vw;
+    transition: padding 0.4s, font-size 0.4s;
+}
+.hero-section.shrink .overlay-text {
+    padding: 1rem;
+    font-size: 0.9em;
+}
+.content {
+    padding: 2rem;
+    background: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* Service detail page layout */
+.service-detail {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+.service-image {
+    flex: 1;
+    max-width: 50%;
+}
+.service-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+.service-text {
+    flex: 1;
+    padding: 1rem;
+}
+.service-text h1 {
+    color: #1a237e;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+.service-text ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+.service-text .service-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    position: static; /* override absolute from service-box */
+}
+.btn-cart {
+    background: #1a237e;
+    color: #fff;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+    .service-detail {
+        flex-direction: column;
+    }
+    .service-image {
+        max-width: 100%;
+    }
+}

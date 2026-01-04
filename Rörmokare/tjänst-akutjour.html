@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Akutjour dygnet runt — Blåkraft VVS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <!-- Topbar: logo, search, contact and cart -->
+    <div class="topbar">
+      <div class="topbar-left">
+        <a href="index.html" style="display: flex; align-items: center; gap: 0.6rem; text-decoration: none;">
+          <img src="img/Logo maker project.png" alt="Företagslogo" class="logo">
+          <span class="company-name">Blåkraft VVS</span>
+        </a>
+      </div>  
+      <div class="topbar-center">
+        <!-- center area left empty for now -->
+      </div>
+      <div class="topbar-right">
+        <!-- Search moved to right: toggle visible, input expands to the left when opened -->
+        <form class="search-form" role="search" action="#" method="get" aria-label="Sök på sidan">
+          <button type="button" class="search-toggle" aria-label="Öppna sök" aria-expanded="false">🔍</button>
+          <input type="search" name="q" placeholder="Sök..." aria-label="Sök" />
+          <!-- submit hidden by default; Enter will submit -->
+          <button type="submit" class="search-submit" aria-label="Utför sökning">🔎</button>
+        </form>
+        <a href="contact.html" class="contact" aria-label="Kontakt">Kontakta oss</a>
+        <a href="#" class="cart" aria-label="Kundvagn">🛒<span class="cart-count">0</span></a>
+      </div>
+    </div>
+  </header>
+  <main class="content">
+    <div class="service-detail">
+      <div class="service-image">
+        <img src="img/tjanst3.jpg" alt="Akut VVS-service med verktyg och delar för snabba reparationer">
+      </div>
+      <div class="service-text">
+        <h1>Akutjour dygnet runt</h1>
+        <p>Snabb hjälp vid akuta VVS-problem, tillgängliga 24/7. Vi är här när du behöver oss mest, med snabba reparationer och professionell service.</p>
+        <p>Våra tjänster inkluderar:</p>
+        <ul>
+          <li>24/7 akut service</li>
+          <li>Snabba reparationer av läckage</li>
+          <li>Återställning av vattenflöde</li>
+          <li>Nödhjälp vid stopp i avlopp</li>
+        </ul>
+        <p>Ring oss när som helst för omedelbar hjälp.</p>
+        <div class="service-buttons">
+          <a href="boka.html" class="btn btn-book">Boka</a>
+          <a href="#" class="btn btn-cart">Lägg i varukorg</a>
+        </div>
+      </div>
+    </div>
+    <p><a href="tjänster.html">← Tillbaka till tjänster</a></p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
