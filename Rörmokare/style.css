@@ -75,6 +75,64 @@
     }
 }
 
+.trust {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    background: #f3f6fb;
+    border-radius: 20px;
+}
+
+.trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 1.5rem 1rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.trust-icon {
+    font-size: 2rem;
+    margin-bottom: 0.6rem;
+    color: var(--primary);
+}
+
+.trust-text {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 0.95rem;
+    letter-spacing: 0.2px;
+}
+
+.trust-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 900px) {
+    .trust {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .trust {
+        padding: 2rem 1rem;
+    }
+
+    .trust-item {
+        padding: 1.2rem;
+    }
+}
+
 h2 {
     text-align: center;
     margin-top: 0;
@@ -113,7 +171,7 @@ body.topbar-fixed-padding {
 /* Topbar styling */
 .topbar {
     position: fixed;
-    top: 5px;
+    top: 0;
     left: 0;
     right: 0;
     display: flex;
@@ -123,6 +181,7 @@ body.topbar-fixed-padding {
     padding: 0 1rem;
     z-index: 1000;
     transition: height 0.28s ease, padding 0.28s ease, opacity 0.25s ease, transform 0.3s ease;
+    background: #fff;
 }
 .topbar-left {
     display: flex;
@@ -202,7 +261,7 @@ body.topbar-fixed-padding {
 .topbar-right .contact {
     background: #1a237e;
     color: #fff;
-    padding: 0.5rem 0.9rem;
+    padding: 0.2rem 0.9rem;
     border-radius: 8px;
     transition: background 0.3s;
 }
@@ -240,7 +299,7 @@ body.topbar-fixed-padding {
 
 
 .hero-section {
-    min-height: 70vh;
+    min-height: 55vh;
     background: linear-gradient(
         rgb(26 35 126 / 32%),
         rgb(26 35 126 / 28%)
@@ -368,58 +427,95 @@ main {
     }
 }
 
-/* CONTACT HERO */
-.contact-hero {
-  height: 45vh;
-  background:
-    linear-gradient(rgba(26,35,126,0.65), rgba(26,35,126,0.65)),
-    url('img/contact-badrum.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* CONTACT PAGE NEW LAYOUT */
+.contact-bg {
+    min-height: 100vh;
+    background:
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("img/kontakt-back.jpg") center / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1rem;
 }
 
-.contact-hero-overlay {
-  text-align: center;
-  color: #fff;
+.contact-box {
+    background: #fff;
+    max-width: 1100px;
+    width: 100%;
+    border-radius: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+        box-shadow: 0 30px 80px rgba(0,0,0,0.35);
 }
 
-.contact-hero-overlay h1 {
-  font-size: 2.6rem;
-  margin-bottom: 0.5rem;
+.contact-left {
+    padding: 3rem;
 }
 
-.contact-hero-overlay p {
-  font-size: 1.1rem;
-  opacity: 0.95;
+.contact-left h2,
+.contact-right h2 {
+    font-size: 2rem;
+    color: #1f2933;
 }
 
-/* CONTACT PAGE */
-.contact-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
+.contact-item {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    font-size: 1rem;
 }
 
-.contact-info ul {
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0;
+.contact-item span {
+    font-size: 1.4rem;
+    color: var(--primary);
 }
 
-.contact-info li {
-  margin-bottom: 0.75rem;
+.contact-left a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
 }
 
-.contact-info a {
-  color: var(--primary);
-  font-weight: 600;
-  text-decoration: none;
+.contact-right {
+    padding: 3rem;
+    background: #f7f9fc;
 }
 
+.contact-right form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-right label {
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.contact-right input,
+.contact-right textarea {
+    margin-top: 0.4rem;
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+}
+
+.contact-right textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-right button {
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 900px) {
+    .contact-box {
+        grid-template-columns: 1fr;
+    }
+}
 .contact-image img {
   width: 100%;
   border-radius: 14px;
