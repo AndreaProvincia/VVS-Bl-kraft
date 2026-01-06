@@ -233,6 +233,19 @@ body.topbar-fixed-padding {
     text-decoration: none;
     font-weight: 600;
 }
+
+.topbar-right .contact {
+    background: #1a237e;
+    color: #fff;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.topbar-right .contact:hover {
+    background: #0d1b5e;
+}
+
 .cart-count {
     display: inline-block;
     background: #e53935;
@@ -270,6 +283,15 @@ body.topbar-fixed-padding {
     url('img/hero-vvs.webp') center / cover no-repeat;
     display: flex;
     align-items: center;
+    position: relative;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    pointer-events: none;
 }
 
 .overlay-text {
