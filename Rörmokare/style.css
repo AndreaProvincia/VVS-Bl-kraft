@@ -286,14 +286,6 @@ body.topbar-fixed-padding {
     position: relative;
 }
 
-.hero-section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.35);
-    pointer-events: none;
-}
-
 .overlay-text {
   
     color: #fff;
@@ -354,9 +346,9 @@ body.topbar-fixed-padding {
 }
 
 /* Specific colors for hero-left overlay text */
-.hero-left .overlay-text h1 { color: #23416c; }
-.hero-left .overlay-text h2 { color: #4f5899; }
-.hero-left .overlay-text p { color: #501362; }
+.hero-left .overlay-text h1 { color: #fff; }
+.hero-left .overlay-text h2 { color: #fff; }
+.hero-left .overlay-text p { color: #fff; }
 
 main {
     background: #fff;
