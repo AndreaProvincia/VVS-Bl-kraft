@@ -51,3 +51,66 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Transform each .service-image into a simple slider (keeps original <img> intact)
+document.addEventListener('DOMContentLoaded', function() {
+    const serviceImages = document.querySelectorAll('.service-image');
+    serviceImages.forEach(container => {
+        // if already transformed, skip
+        if (container.querySelector('.slides')) return;
+
+        const imgs = Array.from(container.querySelectorAll('img'));
+        if (imgs.length === 0) return;
+
+        // build slides wrapper
+        const slides = document.createElement('div');
+        slides.className = 'slides';
+
+        imgs.forEach(img => {
+            const slide = document.createElement('div');
+            slide.className = 'slide';
+            // move existing img into slide (preserve attributes)
+            slide.appendChild(img);
+            slides.appendChild(slide);
+        });
+
+        // clear container and attach slides
+        container.innerHTML = '';
+        container.appendChild(slides);
+
+        // add controls
+        const prev = document.createElement('button');
+        prev.type = 'button'; prev.className = 'slider-btn prev'; prev.setAttribute('aria-label', 'Föregående'); prev.textContent = '‹';
+        const next = document.createElement('button');
+        next.type = 'button'; next.className = 'slider-btn next'; next.setAttribute('aria-label', 'Nästa'); next.textContent = '›';
+        const dots = document.createElement('div'); dots.className = 'slider-dots';
+        container.appendChild(prev); container.appendChild(next); container.appendChild(dots);
+
+        const slideEls = Array.from(slides.children);
+        let idx = 0;
+
+        function update() {
+            slides.style.transform = `translateX(${-idx * 100}%)`;
+            Array.from(dots.children).forEach((b,i)=> b.classList.toggle('active', i===idx));
+        }
+
+        // build dots
+        slideEls.forEach((_, i) => {
+            const b = document.createElement('button'); b.type='button';
+            b.addEventListener('click', () => { idx = i; update(); });
+            dots.appendChild(b);
+        });
+
+        prev.addEventListener('click', () => { idx = (idx-1+slideEls.length)%slideEls.length; update(); });
+        next.addEventListener('click', () => { idx = (idx+1)%slideEls.length; update(); });
+
+        // allow keyboard navigation when focused
+        container.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prev.click();
+            if (e.key === 'ArrowRight') next.click();
+        });
+
+        // initial
+        update();
+    });
+});

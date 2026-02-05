@@ -63,18 +63,21 @@
         <div class="contact-right">
           <h2>Hör av dig!</h2>
 
-          <form>
-            <label>Namn</label>
-            <input type="text" placeholder="Ditt namn">
+          <form action="https://formsubmit.co/info@blakraftvvs.se" method="POST">
+            <input type="hidden" name="_subject" value="Ny förfrågan från webbplatsen">
+            <input type="hidden" name="_captcha" value="false">
 
-            <label>E-post</label>
-            <input type="email" placeholder="Din e-post">
+            <label for="contact-name">Namn</label>
+            <input id="contact-name" name="name" type="text" placeholder="Ditt namn" autocomplete="name" required>
 
-            <label>Telefon</label>
-            <input type="tel" placeholder="Ditt telefonnummer">
+            <label for="contact-email">E-post</label>
+            <input id="contact-email" name="email" type="email" placeholder="Din e-post" autocomplete="email" required>
 
-            <label>Meddelande</label>
-            <textarea placeholder="Beskriv kort vad du behöver hjälp med"></textarea>
+            <label for="contact-phone">Telefon</label>
+            <input id="contact-phone" name="phone" type="tel" placeholder="Ditt telefonnummer" autocomplete="tel">
+
+            <label for="contact-message">Meddelande</label>
+            <textarea id="contact-message" name="message" placeholder="Beskriv kort vad du behöver hjälp med" required></textarea>
 
             <button type="submit" class="btn btn-book">Skicka förfrågan</button>
           </form>

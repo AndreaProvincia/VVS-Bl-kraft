@@ -17,39 +17,61 @@
       </div>
     </div>
   </header>
-  <main class="content">
-    <h1>Boka en tjänst</h1>
-    <p>Fyll i formuläret nedan för att boka en tid eller få offert.</p>
-    <form action="#" method="post">
-      <label for="name">Namn:</label>
-      <input type="text" id="name" name="name" required>
-      
-      <label for="email">E-post:</label>
-      <input type="email" id="email" name="email" required>
-      
-      <label for="phone">Telefon:</label>
-      <input type="tel" id="phone" name="phone" required>
-      
-      <label for="service">Tjänst:</label>
-      <select id="service" name="service">
-        <option value="köksblandare">Installation av köksblandare</option>
-        <option value="tvattstallsblandare">Installation av tvättställsblandare</option>
-        <option value="dushblandare">Installation av dushblandare</option>
-        <option value="tvattmaskin">Installation av tvättmaskin</option>
-        <option value="diskmaskin">Installation av diskmaskin</option>
-        <option value="takdush">Installation av takdush</option>
-        <option value="vattenfilter">Vattenfilter och mjukgörare</option>
-        <option value="rorlaggning">Rörläggning och renovering</option>
-        <option value="akutjour">Akutjour dygnet runt</option>
-        <option value="konsultation">Konsultation och rådgivning</option>
-      </select>
-      
-      <label for="message">Meddelande:</label>
-      <textarea id="message" name="message"></textarea>
-      
-      <button type="submit">Skicka bokning</button>
-    </form>
-    <p><a href="tjänster.html">← Tillbaka till tjänster</a></p>
+  <main>
+    <section class="booking-section">
+      <div class="booking-card">
+        <h1>Boka en tjänst</h1>
+        <p class="booking-lead">
+          Fyll i uppgifterna nedan så kontaktar vi dig för att bekräfta tid eller lämna offert.
+        </p>
+
+        <form class="booking-form" action="#" method="post">
+          <div class="form-grid">
+            <div>
+              <label for="name">Namn</label>
+              <input type="text" id="name" name="name" placeholder="För- och efternamn" required>
+            </div>
+
+            <div>
+              <label for="email">E-post</label>
+              <input type="email" id="email" name="email" placeholder="din@email.se" required>
+            </div>
+
+            <div>
+              <label for="phone">Telefon</label>
+              <input type="tel" id="phone" name="phone" placeholder="070-123 45 67" required>
+            </div>
+
+            <div>
+              <label for="service">Tjänst</label>
+              <select id="service" name="service">
+                <option>Installation av köksblandare</option>
+                <option>Installation av diskmaskin</option>
+                <option>Installation av tvättmaskin</option>
+                <option>Akut VVS</option>
+                <option>Konsultation & rådgivning</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-full">
+            <label for="message">Meddelande (valfritt)</label>
+            <textarea id="message" name="message" placeholder="Beskriv kort vad du behöver hjälp med"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Skicka bokningsförfrågan
+          </button>
+
+          <p class="form-meta">
+            ⏱ Vi återkommer vanligtvis inom 24 timmar<br>
+            ✔ Inget bindande – du bekräftar alltid först
+          </p>
+        </form>
+
+        <a href="index.html#tjänster" class="back-link">← Tillbaka till tjänster</a>
+      </div>
+    </section>
   </main>
   <script src="script.js"></script>
 </body>
